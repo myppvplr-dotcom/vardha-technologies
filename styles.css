@@ -114,6 +114,13 @@ footer .brand-logo{height:52px;max-width:250px}
   font-size:8.5px;letter-spacing:.12em;color:#9db2c2}
 .art-caption .dot{width:5px;height:5px;margin-right:6px}
 
+/* desktop: product photos fill the panel (mobile rules below stay untouched) */
+@media(min-width:861px){
+  .slides{height:clamp(520px,38vw,620px)}
+  .slide img{flex:1 1 auto;min-height:0;width:100%;max-width:100%;max-height:none}
+  .show-dots{padding:10px 0 14px}
+}
+
 /* ---------- marquee ---------- */
 .marquee{background:var(--navy);color:#e8eff5;overflow:hidden;padding:15px 0;border-block:1px solid var(--navy)}
 .marquee-track{display:flex;gap:26px;align-items:center;width:max-content;animation:scroll 26s linear infinite;
