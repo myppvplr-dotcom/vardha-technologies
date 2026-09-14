@@ -91,11 +91,11 @@ footer .brand-logo{height:52px;max-width:250px}
 .art-tag{display:block;padding:22px 26px 0;font-size:9.5px;letter-spacing:.18em;color:#8fa6b8}
 /* product showcase carousel */
 .showcase{position:relative;padding:8px 8px 0}
-.slides{position:relative;height:clamp(300px,34vw,420px)}
-.slide{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+.slides{position:relative;height:clamp(360px,30vw,440px);max-width:520px;margin-inline:auto}
+.slide{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
   opacity:0;transform:scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1);pointer-events:none}
 .slide.is-active{opacity:1;transform:none;pointer-events:auto}
-.slide img{max-height:min(300px,26vw);width:auto;max-width:82%;object-fit:contain;
+.slide img{max-height:min(360px,27vw);width:auto;max-width:92%;object-fit:contain;
   filter:drop-shadow(0 24px 30px rgba(0,0,0,.45))}
 .slide figcaption{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:#ffd9bd}
