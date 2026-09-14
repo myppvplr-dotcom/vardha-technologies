@@ -91,13 +91,15 @@ footer .brand-logo{height:52px;max-width:250px}
 .art-tag{display:block;padding:22px 26px 0;font-size:9.5px;letter-spacing:.18em;color:#8fa6b8}
 /* product showcase carousel */
 .showcase{position:relative;padding:8px 8px 0}
-.slides{position:relative;height:clamp(360px,30vw,440px);max-width:520px;margin-inline:auto}
-.slide{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+.slides{position:relative;height:clamp(460px,36vw,560px);max-width:640px;margin-inline:auto}
+.slide{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
   opacity:0;transform:scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1);pointer-events:none}
 .slide.is-active{opacity:1;transform:none;pointer-events:auto}
-.slide img{max-height:min(360px,27vw);width:auto;max-width:92%;object-fit:contain;
+.slide::before{content:'';position:absolute;width:min(480px,92%);aspect-ratio:1;border-radius:50%;z-index:0;
+  background:radial-gradient(circle,rgba(255,121,66,.20),transparent 65%)}
+.slide img{position:relative;z-index:1;max-height:clamp(360px,34vw,480px);width:auto;max-width:98%;object-fit:contain;
   filter:drop-shadow(0 24px 30px rgba(0,0,0,.45))}
-.slide figcaption{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;
+.slide figcaption{position:relative;z-index:1;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:#ffd9bd}
 .show-btn{position:absolute;top:42%;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
   background:rgba(255,255,255,.1);color:#fff;font-size:22px;line-height:1;cursor:pointer;
