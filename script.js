@@ -86,46 +86,25 @@ if (heroArt && window.matchMedia('(pointer: fine)').matches) {
   });
 }
 
-/* ---------- hero product showcase carousel ---------- */
-const showcase = document.querySelector('#showcase');
-if (showcase) {
-  const slides = Array.from(showcase.querySelectorAll('.slide'));
-  const dots = Array.from(showcase.querySelectorAll('.show-dots button'));
-  const prev = showcase.querySelector('.show-btn.prev');
-  const next = showcase.querySelector('.show-btn.next');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let current = 0;
-  let timer = null;
+/* ---------- hero studio stage: thumbnail switcher (user-driven, no autoplay) ---------- */
+const stage = document.querySelector('#stage');
+if (stage) {
+  const slides = Array.from(stage.querySelectorAll('.slide'));
+  const thumbs = Array.from(stage.querySelectorAll('.thumbs button'));
 
   function go(index) {
-    current = (index + slides.length) % slides.length;
+    const current = (index + slides.length) % slides.length;
     slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
-    dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === current)));
+    thumbs.forEach((t, i) => t.setAttribute('aria-selected', String(i === current)));
   }
 
-  function stop() {
-    if (timer) { window.clearInterval(timer); timer = null; }
-  }
-
-  function start() {
-    stop();
-    if (reduceMotion.matches || document.hidden) return;
-    timer = window.setInterval(() => go(current + 1), 4000);
-  }
-
-  if (prev) prev.addEventListener('click', () => { go(current - 1); start(); });
-  if (next) next.addEventListener('click', () => { go(current + 1); start(); });
-  dots.forEach((d, i) => d.addEventListener('click', () => { go(i); start(); }));
-  showcase.addEventListener('mouseenter', stop);
-  showcase.addEventListener('mouseleave', start);
-  showcase.addEventListener('focusin', stop);
-  showcase.addEventListener('focusout', start);
-  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
-  if (typeof reduceMotion.addEventListener === 'function') {
-    reduceMotion.addEventListener('change', start);
-  }
+  thumbs.forEach((t, i) => t.addEventListener('click', () => go(i)));
+  stage.addEventListener('keydown', (event) => {
+    const current = slides.findIndex((s) => s.classList.contains('is-active'));
+    if (event.key === 'ArrowRight') go(current + 1);
+    if (event.key === 'ArrowLeft') go(current - 1);
+  });
   go(0);
-  start();
 }
 
 /* ---------- product filters ---------- */

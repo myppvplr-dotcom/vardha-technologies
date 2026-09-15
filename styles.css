@@ -84,48 +84,48 @@ footer .brand-logo{height:52px;max-width:250px}
 .stats dt{font-family:'Sora',sans-serif;font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--navy)}
 .stats dd{margin:4px 0 0;font-size:12.5px;color:var(--muted)}
 
-/* hero art */
-.hero-art{position:relative;background:linear-gradient(150deg,#12314b,#0b1c2e 70%);
-  border-radius:20px;overflow:hidden;color:#d2dde5;box-shadow:var(--shadow);
-  border:1px solid rgba(255,255,255,.08)}
-.art-tag{display:block;padding:22px 26px 0;font-size:9.5px;letter-spacing:.18em;color:#8fa6b8}
-/* product showcase carousel */
-.showcase{position:relative;padding:8px 8px 0}
-.slides{position:relative;height:clamp(460px,36vw,560px);max-width:640px;margin-inline:auto}
-.slide{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-  opacity:0;transform:scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1);pointer-events:none}
+/* hero art: light studio stage for transparent product cutouts */
+.hero-art{position:relative;background:linear-gradient(160deg,#fffdf8 0%,var(--cream) 55%,#e7ddd0 100%);
+  border-radius:20px;overflow:hidden;color:var(--ink);box-shadow:var(--shadow);
+  border:1px solid #e3d9c8}
+.art-tag{display:block;padding:22px 26px 0;font-size:9.5px;letter-spacing:.18em;color:#8a7a63}
+/* product stage + thumbnail switcher (Studio Stage) */
+.stage{position:relative;padding:10px 14px 0}
+.slides{position:relative;height:clamp(420px,32vw,500px);max-width:600px;margin-inline:auto}
+.slide{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  opacity:0;transform:translateY(14px) scale(.97);transition:opacity .35s ease,transform .35s cubic-bezier(.2,.7,.3,1);pointer-events:none}
 .slide.is-active{opacity:1;transform:none;pointer-events:auto}
-.slide::before{content:'';position:absolute;width:min(480px,92%);aspect-ratio:1;border-radius:50%;z-index:0;
-  background:radial-gradient(circle,rgba(255,121,66,.20),transparent 65%)}
-.slide img{position:relative;z-index:1;max-height:clamp(360px,34vw,480px);width:auto;max-width:98%;object-fit:contain;
-  filter:drop-shadow(0 24px 30px rgba(0,0,0,.45))}
+.slide::before{content:'';position:absolute;width:min(430px,90%);aspect-ratio:1.35;border-radius:50%;z-index:0;
+  background:radial-gradient(ellipse,rgba(255,255,255,.95),rgba(244,237,227,.4) 55%,transparent 72%)}
+.slide::after{content:'';position:absolute;bottom:9%;left:50%;transform:translateX(-50%);width:min(300px,62%);height:26px;z-index:0;
+  background:radial-gradient(ellipse,rgba(11,28,46,.28),transparent 70%);border-radius:50%}
+.slide img{position:relative;z-index:1;max-height:82%;width:auto;max-width:92%;object-fit:contain;
+  filter:drop-shadow(0 22px 26px rgba(11,28,46,.28))}
 .slide figcaption{position:relative;z-index:1;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:#ffd9bd}
-.show-btn{position:absolute;top:42%;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
-  background:rgba(255,255,255,.1);color:#fff;font-size:22px;line-height:1;cursor:pointer;
-  backdrop-filter:blur(8px);transition:background .25s,transform .25s;z-index:2}
-.show-btn:hover{background:var(--orange);border-color:var(--orange);transform:scale(1.08)}
-.show-btn.prev{left:14px}.show-btn.next{right:14px}
-.show-dots{display:flex;justify-content:center;gap:10px;padding:14px 0 18px}
-.show-dots button{width:26px;height:5px;border-radius:3px;border:0;background:rgba(255,255,255,.25);cursor:pointer;
-  transition:background .3s,width .3s;padding:0}
-.show-dots button[aria-selected="true"]{background:var(--orange);width:38px}
-.art-caption{display:flex;justify-content:space-between;gap:12px;padding:18px 24px;border-top:1px solid rgba(255,255,255,.14);
-  font-size:8.5px;letter-spacing:.12em;color:#9db2c2}
+  text-transform:uppercase;color:var(--orange-deep)}
+.thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:16px 12px 20px;max-width:600px;margin-inline:auto}
+.thumbs button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 4px;border-radius:12px;cursor:pointer;
+  background:rgba(255,255,255,.7);border:1.5px solid transparent;transition:border-color .25s,transform .25s,box-shadow .25s}
+.thumbs button:hover{transform:translateY(-3px);box-shadow:0 10px 22px -12px rgba(11,28,46,.4)}
+.thumbs button[aria-selected="true"]{border-color:var(--orange);background:#fff;
+  box-shadow:0 12px 26px -12px rgba(255,121,66,.55)}
+.thumbs img{width:100%;height:52px;object-fit:contain}
+.thumbs span{font-size:9.5px;font-weight:700;letter-spacing:.02em;color:var(--ink);line-height:1.3;text-align:center}
+.art-caption{display:flex;justify-content:space-between;gap:12px;padding:18px 24px;border-top:1px solid #ddd2bd;
+  font-size:8.5px;letter-spacing:.12em;color:#8a7a63;background:rgba(255,255,255,.5)}
 .art-caption .dot{width:5px;height:5px;margin-right:6px}
 
-/* desktop: product photos fill the panel (mobile rules below stay untouched) */
+/* desktop: studio stage fills the panel (mobile rules below stay untouched) */
 @media(min-width:861px){
-  /* Desktop only: headline/grid tracks capped so the copy column can't starve
-     the showcase panel; photos fill panel height without cropping. */
+  /* Headline/grid tracks capped so the copy column can't starve the stage;
+     product photos fill stage height without cropping. */
   .hero{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
   .hero-copy,.hero-art{min-width:0}
   .hero-art{width:100%}
   .hero h1{font-size:clamp(40px,4.4vw,62px)}
   .slides{height:clamp(480px,36vw,580px);max-width:none}
   .slide{min-width:0}
-  .slide img{flex:1 1 auto;min-width:0;min-height:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
-  .show-dots{padding:10px 0 14px}
+  .slide img{width:100%;height:100%;max-width:100%;max-height:88%;min-height:0;object-fit:contain}
 }
 
 /* ---------- marquee ---------- */
@@ -348,7 +348,9 @@ footer>p span{color:var(--muted)}
   .family-count{margin-left:0}
   .partner-name{font-size:32px}
   .footer-bottom{flex-direction:column;gap:6px}
-  .show-btn{width:40px;height:40px}
+  .thumbs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;padding:14px 20px 18px;max-width:none}
+  .thumbs button{flex:0 0 96px;scroll-snap-align:start}
+  .thumbs img{height:46px}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
