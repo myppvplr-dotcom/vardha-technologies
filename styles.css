@@ -116,8 +116,15 @@ footer .brand-logo{height:52px;max-width:250px}
 
 /* desktop: product photos fill the panel (mobile rules below stay untouched) */
 @media(min-width:861px){
-  .slides{height:clamp(520px,38vw,620px)}
-  .slide img{flex:1 1 auto;min-height:0;width:100%;max-width:100%;max-height:none}
+  /* Desktop only: headline/grid tracks capped so the copy column can't starve
+     the showcase panel; photos fill panel height without cropping. */
+  .hero{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr)}
+  .hero-copy,.hero-art{min-width:0}
+  .hero-art{width:100%}
+  .hero h1{font-size:clamp(40px,4.4vw,62px)}
+  .slides{height:clamp(480px,36vw,580px);max-width:none}
+  .slide{min-width:0}
+  .slide img{flex:1 1 auto;min-width:0;min-height:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
   .show-dots{padding:10px 0 14px}
 }
 
